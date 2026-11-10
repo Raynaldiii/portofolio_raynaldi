@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raynaldi Nugraha Santoso — Data Analyst</title>
+  <meta name="description" content="Portfolio of Raynaldi Nugraha Santoso, a Computer Science graduate with experience in data analytics, performance management, and business operations at BRI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,560;9..144,650&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #16233B;
+      --navy-deep: #0E1826;
+      --paper: #F7F5EF;
+      --paper-raised: #FDFCF9;
+      --ink: #20242B;
+      --ink-soft: #4B5160;
+      --amber: #C9822B;
+      --amber-soft: #E7A951;
+      --teal: #3C7A6D;
+      --line: #DBD5C6;
+      --line-strong: #C3BCA9;
+      --white: #FFFFFF;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--navy);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    .navlink:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      color: var(--navy);
+      margin: 0;
+      font-weight: 560;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 1em;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .prose {
+      max-width: 60ch;
+      color: var(--ink-soft);
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.4vw, 34px);
+      margin-bottom: 8px;
+    }
+
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--teal);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    /* ---------- Nav ---------- */
+    header.site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(247, 245, 239, 0.72);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .25s ease, background .25s ease;
+    }
+
+    header.site-nav.scrolled {
+      border-bottom-color: var(--line);
+      background: rgba(247, 245, 239, 0.92);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-weight: 560;
+      font-size: 18px;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navlink {
+      font-size: 14.5px;
+      text-decoration: none;
+      color: var(--ink-soft);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color .2s ease;
+    }
+
+    .navlink::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      height: 2px;
+      background: var(--amber);
+      transition: right .25s ease;
+    }
+
+    .navlink:hover,
+    .navlink.active {
+      color: var(--navy);
+    }
+
+    .navlink.active::after {
+      right: 0;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      width: 40px;
+      height: 36px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: '';
+      position: absolute;
+      left: 9px;
+      right: 9px;
+      height: 2px;
+      background: var(--navy);
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .nav-toggle span {
+      top: 17px;
+    }
+
+    .nav-toggle span::before {
+      top: -6px;
+    }
+
+    .nav-toggle span::after {
+      top: 6px;
+    }
+
+    .nav-toggle.open span {
+      background: transparent;
+    }
+
+    .nav-toggle.open span::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open span::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 168px 0 64px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    @keyframes heroUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateX(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-role,
+    .hero h1,
+    .hero-lede,
+    .hero-actions {
+      opacity: 0;
+      animation: heroUp .8s cubic-bezier(.16, .84, .44, 1) forwards;
+    }
+
+    .hero-role {
+      animation-delay: .05s;
+    }
+
+    .hero h1 {
+      animation-delay: .15s;
+    }
+
+    .hero-lede {
+      animation-delay: .32s;
+    }
+
+    .hero-actions {
+      animation-delay: .46s;
+    }
+
+    .hero-photo {
+      opacity: 0;
+      animation: heroIn .9s cubic-bezier(.16, .84, .44, 1) forwards;
+      animation-delay: .28s;
+    }
+
+    .hero-role {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.04;
+      margin-bottom: 22px;
+    }
+
+    .hero-lede {
+      max-width: 46ch;
+      color: var(--ink-soft);
+      font-size: 17.5px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--sans);
+      font-size: 14.5px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 4px;
+      border: 1px solid var(--navy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .2s ease, color .2s ease, transform .15s ease;
+    }
+
+    .btn-solid {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-solid:hover {
+      background: var(--navy-deep);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--navy);
+    }
+
+    .btn-ghost:hover {
+      background: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(.97);
+    }
+
+    .hero-photo {
+      position: relative;
+      justify-self: center;
+    }
+
+    .hero-photo .frame {
+      position: relative;
+      width: min(320px, 82vw);
+      border: 1px solid var(--navy);
+      padding: 10px;
+      background: var(--paper-raised);
+      box-shadow: 10px 10px 0 var(--amber-soft);
+      transition: box-shadow .35s cubic-bezier(.16, .84, .44, 1), transform .35s cubic-bezier(.16, .84, .44, 1);
+    }
+
+    .hero-photo .frame:hover {
+      box-shadow: 14px 14px 0 var(--amber-soft);
+      transform: translate(-2px, -2px);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(0.06) contrast(1.02);
+    }
+
+    .hero-photo .cap {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* ---------- Stats strip ---------- */
+    .stats {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 34px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .stat {
+      border-left: 1px solid var(--line);
+      padding-left: 18px;
+    }
+
+    .stat:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .stat-num {
+      font-family: var(--mono);
+      font-size: clamp(22px, 2.6vw, 32px);
+      font-weight: 600;
+      color: var(--navy);
+      display: block;
+    }
+
+    .stat-num.now {
+      color: var(--amber);
+    }
+
+    .stat-label {
+      color: var(--ink-soft);
+      font-size: 13.5px;
+      margin-top: 4px;
+    }
+
+    .stat-now-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stat-now-tag::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--amber);
+      margin-right: 5px;
+    }
+
+    /* ---------- Reveal-on-scroll system ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s cubic-bezier(.16, .84, .44, 1),
+        transform .7s cubic-bezier(.16, .84, .44, 1);
+      transition-delay: var(--reveal-delay, 0s);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-row {
+      opacity: 0;
+      transform: translateX(-18px);
+      transition: opacity .6s cubic-bezier(.16, .84, .44, 1),
+        transform .6s cubic-bezier(.16, .84, .44, 1);
+      transition-delay: var(--reveal-delay, 0s);
+    }
+
+    .reveal-row.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-clip {
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path .85s cubic-bezier(.16, .84, .44, 1);
+    }
+
+    .reveal-clip.in-view {
+      clip-path: inset(0 0 0% 0);
+    }
+
+    /* ---------- "Currently" pulse ---------- */
+    @keyframes pulseDot {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(201, 130, 43, .35);
+      }
+
+      50% {
+        box-shadow: 0 0 0 5px rgba(201, 130, 43, 0);
+      }
+    }
+
+    .is-current::before,
+    .stat-now-tag::before {
+      animation: pulseDot 2s ease-in-out infinite;
+    }
+
+    /* ---------- Section shell ---------- */
+    section {
+      padding: 84px 0;
+    }
+
+    section+section {
+      border-top: 1px solid var(--line);
+    }
+
+    /* ---------- About ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 56px;
+    }
+
+    .flow {
+      margin-top: 48px;
+    }
+
+    .flow-track {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 18px;
+      position: relative;
+    }
+
+    .flow-track::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--line-strong);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 1.1s cubic-bezier(.16, .84, .44, 1);
+    }
+
+    .flow.in-view .flow-track::before {
+      transform: scaleX(1);
+    }
+
+    .flow-step {
+      position: relative;
+      padding-top: 30px;
+    }
+
+    .flow-dot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--amber);
+      transform: scale(0);
+      transition: transform .45s cubic-bezier(.34, 1.56, .64, 1);
+      transition-delay: var(--dot-delay, 0s);
+    }
+
+    .flow.in-view .flow-dot {
+      transform: scale(1);
+    }
+
+    .flow-index,
+    .flow-title {
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .5s ease, transform .5s ease;
+      transition-delay: var(--dot-delay, 0s);
+    }
+
+    .flow.in-view .flow-index,
+    .flow.in-view .flow-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .flow-index {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .flow-title {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    /* ---------- Education ---------- */
+    .doc-block {
+      border: 1px solid var(--line-strong);
+      background: var(--paper-raised);
+      padding: 30px 32px;
+      position: relative;
+      transition: box-shadow .3s ease, transform .3s ease,
+        clip-path .85s cubic-bezier(.16, .84, .44, 1);
+    }
+
+    .doc-block:hover {
+      box-shadow: 6px 6px 0 var(--line);
+      transform: translate(-2px, -2px);
+    }
+
+    .doc-block::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--amber);
+    }
+
+    .doc-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      margin-bottom: 4px;
+    }
+
+    .doc-head h3 {
+      font-size: 21px;
+    }
+
+    .doc-date {
+      font-family: var(--mono);
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    .doc-sub {
+      color: var(--teal);
+      font-size: 14.5px;
+      margin-bottom: 14px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 16px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      border: 1px solid var(--line-strong);
+      padding: 4px 9px;
+      border-radius: 3px;
+    }
+
+    .thesis {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink);
+      font-size: 16.5px;
+      margin: 6px 0 12px;
+      max-width: 62ch;
+    }
+
+    ul.bullets {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: var(--ink-soft);
+    }
+
+    ul.bullets li {
+      margin-bottom: 7px;
+      max-width: 68ch;
+    }
+
+    ul.bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ---------- Experience ledger ---------- */
+    .ledger-row {
+      padding: 30px 0;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 24px;
+      transition: opacity .6s cubic-bezier(.16, .84, .44, 1) var(--reveal-delay, 0s),
+        transform .6s cubic-bezier(.16, .84, .44, 1) var(--reveal-delay, 0s),
+        padding-left .3s ease, background .3s ease;
+    }
+
+    .ledger-row:hover {
+      padding-left: 10px;
+      background: linear-gradient(90deg, rgba(201, 130, 43, .05), transparent 40%);
+    }
+
+    .ledger-row:not(:last-child) {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ledger-date {
+      font-family: var(--mono);
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      padding-top: 4px;
+      line-height: 1.5;
+      transition: color .3s ease;
+    }
+
+    .ledger-row:hover .ledger-date {
+      color: var(--amber);
+    }
+
+    .is-current {
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    .is-current::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      margin-right: 6px;
+    }
+
+    .ledger-body h3 {
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+
+    .ledger-role {
+      color: var(--teal);
+      font-size: 14.5px;
+      margin-bottom: 12px;
+    }
+
+    /* ---------- Achievements ---------- */
+    .ach-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ach-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      padding: 20px 0 20px 18px;
+      border-left: 3px solid var(--amber);
+      border-bottom: 1px solid var(--line);
+      transition: opacity .6s cubic-bezier(.16, .84, .44, 1) var(--reveal-delay, 0s),
+        transform .6s cubic-bezier(.16, .84, .44, 1) var(--reveal-delay, 0s),
+        border-left-width .25s ease, padding-left .25s ease;
+    }
+
+    .ach-row:hover {
+      border-left-width: 6px;
+      padding-left: 22px;
+    }
+
+    .ach-row:nth-child(2) {
+      border-left-color: var(--teal);
+    }
+
+    .ach-row:nth-child(3) {
+      border-left-color: var(--navy);
+    }
+
+    .ach-row:last-child {
+      border-bottom: none;
+    }
+
+    .ach-year {
+      font-family: var(--mono);
+      color: var(--ink-soft);
+      font-size: 14px;
+      padding-top: 2px;
+    }
+
+    .ach-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .ach-issuer {
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    /* ---------- Skills ---------- */
+    .skill-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
+      padding: 22px 0;
+    }
+
+    .skill-row:not(:last-child) {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill-label {
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--navy);
+      padding-top: 6px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink);
+      background: var(--paper-raised);
+      border: 1px solid var(--line-strong);
+      padding: 7px 12px;
+      border-radius: 4px;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .chip:hover {
+      border-color: var(--amber);
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .chip.lang {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .chip.lang:hover {
+      border-color: var(--teal);
+      background: var(--white);
+    }
+
+    /* ---------- Documentation gallery ---------- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid var(--line-strong);
+      background: var(--paper-raised);
+      aspect-ratio: 4 / 3;
+      cursor: default;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    .gallery-item.full {
+      grid-column: span 3;
+      aspect-ratio: 16 / 7;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s cubic-bezier(.16, .84, .44, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-cap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 14px 16px 12px;
+      background: linear-gradient(to top, rgba(14, 24, 38, 0.88), rgba(14, 24, 38, 0));
+      color: var(--white);
+      transform: translateY(6px);
+      opacity: 0.92;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .gallery-item:hover .gallery-cap {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .gallery-cap .g-title {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 13.5px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .gallery-cap .g-meta {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: #C9CEDB;
+    }
+
+    /* ---------- Contact / footer ---------- */
+    footer {
+      background: var(--navy-deep);
+      color: #E8E6DE;
+      padding: 88px 0 40px;
+    }
+
+    footer h2 {
+      color: var(--white);
+      font-size: clamp(30px, 4.2vw, 46px);
+      max-width: 14ch;
+      margin-bottom: 28px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-list a {
+      color: #E8E6DE;
+      font-size: 17px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232, 230, 222, 0.25);
+      padding-bottom: 3px;
+      transition: border-color .2s ease, color .2s ease;
+    }
+
+    .contact-list a:hover {
+      color: var(--amber-soft);
+      border-color: var(--amber-soft);
+    }
+
+    .contact-list .k {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #8F97A6;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    footer .btn-solid {
+      background: var(--amber-soft);
+      border-color: var(--amber-soft);
+      color: var(--navy-deep);
+    }
+
+    footer .btn-solid:hover {
+      background: #f0bd6f;
+    }
+
+    footer .btn-ghost {
+      border-color: rgba(232, 230, 222, 0.4);
+      color: #E8E6DE;
+    }
+
+    footer .btn-ghost:hover {
+      background: rgba(232, 230, 222, 0.08);
+    }
+
+    .foot-bottom {
+      border-top: 1px solid rgba(232, 230, 222, 0.15);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+      color: #8F97A6;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo {
+        order: -1;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 18px;
+      }
+
+      .stat:nth-child(3n+1) {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .stat {
+        padding-bottom: 4px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+
+      .gallery-item.full {
+        grid-column: span 2;
+        aspect-ratio: 4 / 3;
+      }
+
+      .flow-track {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+      }
+
+      .flow-track::before {
+        top: 0;
+        bottom: 0;
+        left: 6px;
+        right: auto;
+        width: 1px;
+        height: auto;
+        transform-origin: top center;
+        transform: scaleY(0);
+      }
+
+      .flow.in-view .flow-track::before {
+        transform: scaleY(1);
+      }
+
+      .flow-step {
+        padding-top: 0;
+        padding-left: 26px;
+      }
+
+      .flow-dot {
+        top: 3px;
+        left: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 0 20px;
+      }
+
+      .nav-inner {
+        padding: 14px 20px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .25s ease;
+      }
+
+      .nav-links.open {
+        max-height: 320px;
+      }
+
+      .nav-links li {
+        border-top: 1px solid var(--line);
+      }
+
+      .navlink {
+        display: block;
+        padding: 14px 20px;
+      }
+
+      .navlink::after {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 128px;
+      }
+
+      .ledger-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .doc-head {
+        flex-direction: column;
+      }
+
+      .ach-row,
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(3n+1) {
+        border-left: 1px solid var(--line);
+        padding-left: 18px;
+      }
+
+      .stat:nth-child(2n+1) {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item.wide {
+        grid-column: span 1;
+      }
+
+      .gallery-item.full {
+        grid-column: span 1;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    @media print {
+
+      header.site-nav,
+      .hero-actions,
+      footer .btn-row,
+      .print-hide {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      section {
+        padding: 24px 0;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .hero-photo .frame {
+        box-shadow: none;
+      }
+    }
+  
+    /* justified text */
+    .hero-lede, .prose, .thesis, .bullets li { text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+    .contact-list a { overflow-wrap: anywhere; word-break: break-word; }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a class="nav-name" href="#home">Raynaldi Nugraha Santoso</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a class="navlink" href="#about">About</a></li>
+        <li><a class="navlink" href="#education">Education</a></li>
+        <li><a class="navlink" href="#experience">Experience</a></li>
+        <li><a class="navlink" href="#projects">Projects</a></li>
+        <li><a class="navlink" href="#achievements">Achievements</a></li>
+        <li><a class="navlink" href="#skills">Skills</a></li>
+        <li><a class="navlink" href="#documentation">Documentation</a></li>
+        <li><a class="navlink" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="hero-role">Litigation &amp; Recovery Assistant at BRI · Jakarta, Indonesia</span>
+          <h1>Turning messy records into decisions people can act on.</h1>
+          <p class="hero-lede">
+            Computer Science graduate with 1 year of professional experience and
+            internship exposure in data analytics, nationwide performance
+            management, and business operations within leading state-owned
+            enterprises in Indonesia’s banking and financial services sector.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="mailto:raynaldinugraha527@gmail.com">Email me</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/raynaldinugrahasantoso"
+              target="_blank" rel="noopener">View LinkedIn</a>
+            <button class="btn btn-ghost" id="printBtn" type="button">Save as PDF</button>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="frame">
+            <img
+            src="saya.png"
+              alt="Portrait of Raynaldi Nugraha Santoso in a white shirt and navy tie">
+          </div>
+          <div class="cap">Raynaldi Nugraha Santoso</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="wrap stats-grid">
+        <div class="stat">
+          <span class="stat-num" data-count="3.71" data-decimals="2">0.00</span>
+          <span class="stat-label">GPA, out of 4.00</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="533">0</span>
+          <span class="stat-label">TOEFL ITP score, 2025</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="10000" data-prefix="±">0</span>
+          <span class="stat-label">credit accounts validated at BRI</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="18">0</span>
+          <span class="stat-label">regional offices covered in REPRO Buyer program</span>
+        </div>
+        <div class="stat">
+          <span class="stat-now-tag">Now</span>
+          <span class="stat-num now" data-count="100" data-suffix="+">0</span>
+          <span class="stat-label">REPRO Buyer submissions managed</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div>
+          <span class="section-kicker">01 — About</span>
+          <h2 class="section-title">What I actually do with data</h2>
+        </div>
+        <div>
+          <p class="prose">
+            I hold a B.Sc. in Computer Science from Bhayangkara Jakarta Raya
+            University (GPA 3.71 / 4.00), with a focus on Data Science, Data
+            Analytics, and Data Visualization.
+          </p>
+          <p class="prose">
+            Skilled in data-driven decision-making, business analysis, and
+            cross-functional coordination. Currently seeking an entry-level
+            management trainee opportunity.
+          </p>
+          <div class="flow">
+            <div class="flow-track">
+              <div class="flow-step">
+                <span class="flow-dot"></span>
+                <span class="flow-index">01</span>
+                <span class="flow-title">Collect</span>
+              </div>
+              <div class="flow-step">
+                <span class="flow-dot"></span>
+                <span class="flow-index">02</span>
+                <span class="flow-title">Clean</span>
+              </div>
+              <div class="flow-step">
+                <span class="flow-dot"></span>
+                <span class="flow-index">03</span>
+                <span class="flow-title">Validate</span>
+              </div>
+              <div class="flow-step">
+                <span class="flow-dot"></span>
+                <span class="flow-index">04</span>
+                <span class="flow-title">Analyze</span>
+              </div>
+              <div class="flow-step">
+                <span class="flow-dot"></span>
+                <span class="flow-index">05</span>
+                <span class="flow-title">Report</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <span class="section-kicker">02 — Education</span>
+        <h2 class="section-title" style="margin-bottom:32px;">Education</h2>
+
+        <div class="doc-block">
+          <div class="doc-head">
+            <h3>Bhayangkara Jakarta Raya University</h3>
+            <span class="doc-date">September 2021 – August 2025</span>
+          </div>
+          <div class="doc-sub">B.Sc. in Computer Science · GPA 3.71 / 4.00</div>
+          <div class="tag-row">
+            <span class="tag">Data Science</span>
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Data Visualization</span>
+          </div>
+          <p class="thesis">
+            Thesis: "Inventory Management Information System for Automotive
+            Spare Parts Using the FP-Growth Algorithm."
+          </p>
+          <ul class="bullets">
+            <li>Applied association-rule mining to transaction data to identify purchasing patterns and support stock planning.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <span class="section-kicker">03 — Experience</span>
+        <h2 class="section-title" style="margin-bottom:8px;">Experience</h2>
+        <p class="prose" style="margin-bottom:20px;">From a data analyst internship to a full-time role in litigation
+          &amp; recovery, across banking, pension administration, and telecommunications.</p>
+
+        <div class="ledger">
+          <div class="ledger-row">
+            <div class="ledger-date"><span class="is-current">Jul 2026 – Present</span><br>3 mos</div>
+            <div class="ledger-body">
+              <h3>PT Bank Rakyat Indonesia (Persero) Tbk</h3>
+              <div class="ledger-role">Assistant — Litigation &amp; Recovery · Retail Collection &amp; Recovery Group · Full-time</div>
+              <ul class="bullets">
+                <li>Oversee REPRO Buyer Program performance, with Batch I (Jun–Sep 2026) delivering Rp124.3 billion in recovery cash-in from 142 verified referrals, against Rp621.7 million in referral rewards (0.5% of cash-in).</li>
+                <li>Supervise end-to-end REPRO Buyer Program coordination as Program PIC, overseeing implementation across 18 Regions and 74 Areas, managing 100+ submissions and 500+ supporting documents.</li>
+                <li>Coordinated Regional Offices during Gebyar Lelang Serentak Nusantara (nationwide simultaneous auction program), verifying auction data daily so Head Office could track collateral sales accurately and on time.</li>
+                <li>Reconciled and cleansed recovery data so figures reported to Head Office are accurate and consistent.</li>
+                <li>Developed Excel and SharePoint dashboards to monitor verified referrals, monthly cash-in by segment, submission status, documentation completeness, and regional performance, enabling data-driven oversight and early identification of underperforming regions.</li>
+                <li>Drive cross-functional coordination among Collection &amp; Recovery solid lines (Regional, Area to Branch Offices), and Head Office to resolve data discrepancies and documentation gaps, ensuring timely and seamless program execution.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ledger-row">
+            <div class="ledger-date">Nov 2025 – May 2026</div>
+            <div class="ledger-body">
+              <h3>PT Bank Rakyat Indonesia (Persero) Tbk</h3>
+              <div class="ledger-role">Data Analyst Intern — Data Strategy &amp; Support · Retail Collection &amp; Recovery Group</div>
+              <ul class="bullets">
+                <li>Cleansed ~3,000 field-collection records daily with Python (Pandas) and validated data for ~10,000 micro and consumer credit accounts before management reporting.</li>
+                <li>Consolidated reporting inputs from approximately 2,000 field collectors into structured daily, weekly, and monthly performance reports, strengthening monitoring and cross-period performance evaluation.</li>
+                <li>Converted raw transaction data into actionable analytical reports to support credit risk assessment and collection strategy optimization.</li>
+                <li>Executed large-scale data migration and validation for approximately 150 field collectors per Regional Office, ensuring seamless system implementation with zero data-integrity issues at go-live.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ledger-row">
+            <div class="ledger-date">Sep – Oct 2019</div>
+            <div class="ledger-body">
+              <h3>PT Taspen (Persero)</h3>
+              <div class="ledger-role">IT Data Entry Intern</div>
+              <ul class="bullets">
+                <li>Conducted daily verification of approximately 30 pensioner records and processed fingerprint, facial, and voice biometric data uploads in accordance with established data security and handling procedures.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ledger-row">
+            <div class="ledger-date">Jul – Sep 2019</div>
+            <div class="ledger-body">
+              <h3>PT Telkom Indonesia</h3>
+              <div class="ledger-role">HR Administration Intern</div>
+              <ul class="bullets">
+                <li>Streamlined employee record management to improve data accessibility and retrieval, while developing a Telegram-based automation system to facilitate communication and accelerate inquiry resolution between STO staff and the Witel team.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size:20px; margin: 56px 0 4px;">Additional Technical Training</h3>
+        <p class="prose" style="margin-bottom:8px;">Bootcamps completed alongside my degree.</p>
+
+        <div class="ledger">
+          <div class="ledger-row">
+            <div class="ledger-date">Mar 2024 – Jun 2024</div>
+            <div class="ledger-body">
+              <h3>Front End Development Bootcamp, Maxy Academy</h3>
+              <ul class="bullets">
+                <li>PHP and Bootstrap; built responsive pages and a data-driven personality-test website.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ledger-row">
+            <div class="ledger-date">Aug 2023 – Dec 2023</div>
+            <div class="ledger-body">
+              <h3>Web Development Bootcamp, Infinite Learning</h3>
+              <ul class="bullets">
+                <li>JavaScript and Tailwind CSS; served as Project Manager for the final project, an on-demand vehicle workshop platform.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <span class="section-kicker">04 — Projects</span>
+        <h2 class="section-title" style="margin-bottom:8px;">Projects</h2>
+        <div class="ledger">
+          <div class="ledger-row">
+            <div class="ledger-date">2025</div>
+            <div class="ledger-body">
+              <h3>Field Collection Performance Monitoring &amp; Reporting</h3>
+              <ul class="bullets">
+                <li>Managed daily reports of 2,500+ field-collection records under Retail Collection &amp; Recovery Group.</li>
+                <li>Developed a standardized input form to minimize inconsistent formatting and data-entry errors.</li>
+                <li>Validated and consolidated data to improve reporting accuracy and consistency.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="wrap">
+        <span class="section-kicker">05 — Achievements</span>
+        <h2 class="section-title" style="margin-bottom:32px;">Achievements &amp; certification</h2>
+        <div class="ach-list">
+          <div class="ach-row">
+            <div class="ach-year">2025</div>
+            <div>
+              <div class="ach-title">TOEFL ITP Band Score: 533</div>
+              <div class="ach-issuer">Elskill English Course</div>
+            </div>
+          </div>
+          <div class="ach-row">
+            <div class="ach-year">2025</div>
+            <div>
+              <div class="ach-title">1st Place — Design Vision Competition</div>
+              <div class="ach-issuer">Universitas Bhayangkara Jakarta Raya</div>
+            </div>
+          </div>
+          <div class="ach-row">
+            <div class="ach-year">2025</div>
+            <div>
+              <div class="ach-title">Certified Software Engineer Competency</div>
+              <div class="ach-issuer">Badan Nasional Sertifikasi Profesi (BNSP)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <span class="section-kicker">06 — Skills</span>
+        <h2 class="section-title" style="margin-bottom:24px;">Skills &amp; languages</h2>
+
+        <div class="skill-row">
+          <div class="skill-label">Technical</div>
+          <div class="chip-row">
+            <span class="chip">Python (Pandas)</span>
+            <span class="chip">Microsoft Excel</span>
+            <span class="chip">SharePoint</span>
+            <span class="chip">PHP</span>
+            <span class="chip">Bootstrap</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Tailwind CSS</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Working style</div>
+          <div class="chip-row">
+            <span class="chip">Data-driven decision-making</span>
+            <span class="chip">Business analysis</span>
+            <span class="chip">Cross-functional coordination</span>
+            <span class="chip">Project management</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="documentation">
+      <div class="wrap">
+        <span class="section-kicker">07 — Documentation</span>
+        <h2 class="section-title" style="margin-bottom:8px;">Moments on the job</h2>
+        <p class="prose" style="margin-bottom:24px;">A few snapshots from my time at BRI — team milestones, internal
+          events, and the people I work with day to day.</p>
+
+        <div class="gallery">
+          <div class="gallery-item wide">
+            <img src="doc-1.jpg" alt="BRI anniversary (HUT BRI) celebration with the Litigation &amp; Recovery team"
+              loading="lazy">
+            <div class="gallery-cap">
+              <span class="g-title">HUT BRI Anniversary Celebration</span>
+              <span class="g-meta">With the team — BRI Head Office</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="doc-3.jpg" alt="Team meeting with the Litigation & Recovery division" loading="lazy">
+            <div class="gallery-cap">
+              <span class="g-title">Team Meeting</span>
+              <span class="g-meta">Litigation &amp; Recovery Division</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="doc-4.jpg" alt="Indonesia Independence Day (HUT RI ke-81) ceremony with colleagues"
+              loading="lazy">
+            <div class="gallery-cap">
+              <span class="g-title">HUT RI ke-81 Ceremony</span>
+              <span class="g-meta">Danantara Indonesia Event</span>
+            </div>
+          </div>
+          <div class="gallery-item wide">
+            <img src="doc-2.jpg" alt="Team dinner with the Litigation & Recovery colleagues" loading="lazy">
+            <div class="gallery-cap">
+              <span class="g-title">Team Dinner</span>
+              <span class="g-meta">Retail Collection &amp; Recovery Group </span>
+            </div>
+          </div>
+          <div class="gallery-item full">
+            <img src="doc-5.jpg" alt="BRILian Culture Fest 2026 group photo" loading="lazy">
+            <div class="gallery-cap">
+              <span class="g-title">BRILian Culture Fest 2026</span>
+              <span class="g-meta">Berkolaborasi Memberi Arti — Retail Collection &amp; Recovery Group</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <h2>Have data that needs a closer look?</h2>
+        <p class="prose" style="color:#B7BCC7;">
+          I’m currently seeking an entry-level management trainee opportunity. The fastest way to reach me is email.
+        </p>
+      </div>
+
+      <ul class="contact-list">
+        <li>
+          <span class="k">Email</span>
+          <a href="mailto:raynaldinugraha527@gmail.com">raynaldinugraha527@gmail.com</a>
+        </li>
+        <li>
+          <span class="k">Phone / WhatsApp</span>
+          <a href="tel:+6282143412225">+62 821-4341-2225</a>
+        </li>
+        <li>
+          <span class="k">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/raynaldinugrahasantoso" target="_blank"
+            rel="noopener">https://www.linkedin.com/in/raynaldinugrahasantoso</a>
+        </li>
+      </ul>
+
+      <div class="foot-bottom">
+        <span>Raynaldi Nugraha Santoso — Bekasi, West Java, Indonesia</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Nav scroll state
+      var nav = document.getElementById('siteNav');
+      function onScroll() {
+        if (window.scrollY > 8) { nav.classList.add('scrolled'); }
+        else { nav.classList.remove('scrolled'); }
+      }
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Mobile nav toggle
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          links.classList.remove('open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Scrollspy
+      var sections = ['about', 'education', 'experience', 'projects', 'achievements', 'skills', 'documentation', 'contact']
+        .map(function (id) { return document.getElementById(id); })
+        .filter(Boolean);
+      var navlinks = Array.prototype.slice.call(document.querySelectorAll('.navlink'));
+
+      if ('IntersectionObserver' in window) {
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.id;
+              navlinks.forEach(function (l) {
+                l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+              });
+            }
+          });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        sections.forEach(function (s) { spy.observe(s); });
+      }
+
+      // Count-up stats, once, on first view
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var stats = Array.prototype.slice.call(document.querySelectorAll('.stat-num'));
+
+      function formatValue(v, decimals) {
+        return decimals ? v.toFixed(decimals) : Math.round(v).toLocaleString('en-US');
+      }
+
+      function animateStat(el) {
+        var target = parseFloat(el.getAttribute('data-count'));
+        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        if (reduceMotion) {
+          el.textContent = prefix + formatValue(target, decimals) + suffix;
+          return;
+        }
+        var duration = 900;
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = prefix + formatValue(target * eased, decimals) + suffix;
+          if (progress < 1) { requestAnimationFrame(step); }
+        }
+        requestAnimationFrame(step);
+      }
+
+      if ('IntersectionObserver' in window && stats.length) {
+        var statObserver = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateStat(entry.target);
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.6 });
+        stats.forEach(function (s) { statObserver.observe(s); });
+      } else {
+        stats.forEach(animateStat);
+      }
+
+      // Scroll reveal: fade/slide content in as it enters the viewport
+      function tagReveal(selector, className) {
+        document.querySelectorAll(selector).forEach(function (el) {
+          el.classList.add(className);
+        });
+      }
+      tagReveal('.section-kicker, .section-title, .prose, footer h2', 'reveal');
+      tagReveal('.doc-block', 'reveal');
+      tagReveal('.ledger-row, .ach-row, .skill-row, .gallery-item', 'reveal-row');
+
+      function stagger(parentSelector, childSelector) {
+        document.querySelectorAll(parentSelector).forEach(function (parent) {
+          var children = parent.querySelectorAll(childSelector);
+          children.forEach(function (child, i) {
+            child.style.setProperty('--reveal-delay', Math.min(i * 0.1, 0.4) + 's');
+          });
+        });
+      }
+      stagger('.ledger', '.ledger-row');
+      stagger('.ach-list', '.ach-row');
+      stagger('#skills', '.skill-row');
+      stagger('.gallery', '.gallery-item');
+
+      var revealTargets = Array.prototype.slice.call(
+        document.querySelectorAll('.reveal, .reveal-row, .reveal-clip')
+      );
+      if (reduceMotion) {
+        revealTargets.forEach(function (el) { el.classList.add('in-view'); });
+      } else if ('IntersectionObserver' in window && revealTargets.length) {
+        var revealObserver = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        revealTargets.forEach(function (el) { revealObserver.observe(el); });
+        // Safety net: if for any reason a target never intersects (e.g. odd
+        // viewport/layout edge cases), force it visible after a short delay
+        // so content never gets stuck permanently hidden.
+        setTimeout(function () {
+          revealTargets.forEach(function (el) {
+            if (!el.classList.contains('in-view')) { el.classList.add('in-view'); }
+          });
+        }, 2500);
+      } else {
+        revealTargets.forEach(function (el) { el.classList.add('in-view'); });
+      }
+
+      // Data-pipeline diagram: draw the line and pop each step in, in order
+      var flowEl = document.querySelector('.flow');
+      if (flowEl) {
+        var flowSteps = flowEl.querySelectorAll('.flow-step');
+        flowSteps.forEach(function (step, i) {
+          step.style.setProperty('--dot-delay', (0.15 + i * 0.16) + 's');
+        });
+        if (reduceMotion) {
+          flowEl.classList.add('in-view');
+        } else if ('IntersectionObserver' in window) {
+          var flowObserver = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.3 });
+          flowObserver.observe(flowEl);
+          setTimeout(function () { flowEl.classList.add('in-view'); }, 2500);
+        } else {
+          flowEl.classList.add('in-view');
+        }
+      }
+
+      // Print / save as PDF
+      document.getElementById('printBtn').addEventListener('click', function () {
+        window.print();
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
